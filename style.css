@@ -28,7 +28,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-#search {
+#buscar {
     border-radius: 5px 0 0 5px;
     border: none;
     padding: 10px;
@@ -37,7 +37,7 @@ h1 {
     height: 42px;
 }
   
-#submit {
+#enviar {
     border-radius: 0 5px 5px 0;
     padding: 10px;
     font-size: 16px;
@@ -45,19 +45,19 @@ h1 {
     cursor: pointer;
 }
 
-#weather-wrapper {
+#cubierta-clima {
     display: flex;
     flex-direction: column;
     place-items: center;
     justify-content: space-between;
 }
   
-#weather-search {
+#busqueda-clima {
     display: flex;
     width: 50%;
 }
 
-#weather-data {
+#info-clima {
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 5px;
     padding: 1.5em;
@@ -68,7 +68,7 @@ h1 {
     gap: 12px;
 }
   
-#weather-data > img {
+#info-clima > img {
     border-radius: 50%;
     background-color: lightskyblue;
 }
