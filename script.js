@@ -1,14 +1,14 @@
 async function fetchWeather() {
-    let searchInput = document.getElementById("search").value;
-    const weatherDataSection = document.getElementById("weather-data");
+    let searchInput = document.getElementById("buscar").value;
+    const weatherDataSection = document.getElementById("info-clima");
     weatherDataSection.style.display = "block";
     const apiKey = "9af8223176e24e6c1e596a22667fa8bf"; 
 
     if (searchInput == "") {
         weatherDataSection.innerHTML = `
         <div>
-          <h2>Empty Input!</h2>
-          <p>Please try again with a valid <u>city name</u>.</p>
+          <h2>Búsqueda vacia</h2>
+          <p>Intenta de nuevo con una <u>ciudad válida</u>.</p>
         </div>
         `;
         return;
@@ -27,11 +27,11 @@ async function fetchWeather() {
         const data = await response.json();
 
         if (data.length == 0) {
-            console.log("Something went wrong here.");
+            console.log("Algo salió mal");
             weatherDataSection.innerHTML = `
             <div>
-              <h2>Invalid Input: "${searchInput}"</h2>
-              <p>Please try again with a valid <u>city name</u>.</p>
+              <h2>Entrada inválida: "${searchInput}"</h2>
+              <p>Intenta de nuevo con una <u>ciudad válida</u>.</p>
             </div>
             `;
             return;
@@ -57,12 +57,12 @@ async function fetchWeather() {
         <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="${data.weather[0].description}" width="100" />
         <div>
         <h2>${data.name}</h2>
-        <p><strong>Temperature:</strong> ${Math.round(data.main.temp - 273.15)}°C</p>
-        <p><strong>Description:</strong> ${data.weather[0].description}</p>
+        <p><strong>Temperatura:</strong> ${Math.round(data.main.temp - 273.15)}°C</p>
+        <p><strong>Descripción:</strong> ${data.weather[0].description}</p>
         </div>`
     }
     
-    document.getElementById("search").value = "";
+    document.getElementById("buscar").value = "";
     const geocodeData = await getLonAndLat();
     getWeatherData(geocodeData.lon, geocodeData.lat);
     
